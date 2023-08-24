@@ -1,0 +1,53 @@
+@mixin background($color1, $color2) {
+  background: linear-gradient(to bottom right, $color1, $color2);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.shapes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111;
+  .triangle {
+    width: 300px;
+    height: 300px;
+    @include background(red, blue);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  .hexagon {
+    width: 300px;
+    height: 300px;
+    @include background(purple, orange);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+
+  .circle {
+    width: 300px;
+    height: 300px;
+    @include background(blue, green);
+    clip-path: circle(50% at 50% 50%);
+    // border-radius: 50%;
+    // -webkit-border-radius: 50%;
+    // -moz-border-radius: 50%;
+    // -ms-border-radius: 50%;
+    // -o-border-radius: 50%;
+  }
+
+  .book {
+    width: 300px;
+    height: 300px;
+    @include background(yellow, purple);
+    clip-path: polygon(0 0, 50% 25%, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  }
+}
